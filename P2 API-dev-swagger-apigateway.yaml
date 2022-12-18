@@ -1,0 +1,372 @@
+---
+swagger: "2.0"
+info:
+  description: "Payment Page API"
+  version: "2022-12-04T21:39:55Z"
+  title: "P2 API"
+host: "p2.apipay.dev"
+basePath: "/dev"
+schemes:
+- "https"
+paths:
+  /api/v1/applepay/session:
+    get:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Low-Code-User-Sub"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Amount"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Currency"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "GET"
+        uri: "http://${stageVariables.p2_backend}/api/v1/applepay/session"
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.Low-Code-Currency: "method.request.header.Low-Code-Currency"
+          integration.request.header.Low-Code-User-Sub: "method.request.header.Low-Code-User-Sub"
+          integration.request.header.Low-Code-Amount: "method.request.header.Low-Code-Amount"
+        passthroughBehavior: "when_no_match"
+        type: "http"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'GET,OPTIONS'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Low-Code-User-Sub,Low-Code-Amount,Low-Code-Currency'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v1/health:
+    get:
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        httpMethod: "GET"
+        uri: "http://${stageVariables.p2_backend}/actuator/health"
+        responses:
+          default:
+            statusCode: "200"
+        passthroughBehavior: "when_no_match"
+        type: "http"
+  /api/v1/paypal/charge:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Low-Code-User-Sub"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Amount"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Currency"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "http://54.81.252.5:8080/api/v1/paypal/charge"
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.Low-Code-Currency: "method.request.header.Low-Code-Currency"
+          integration.request.header.Low-Code-User-Sub: "method.request.header.Low-Code-User-Sub"
+          integration.request.header.Low-Code-Amount: "method.request.header.Low-Code-Amount"
+        passthroughBehavior: "when_no_match"
+        type: "http"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Low-Code-Amount,Low-Code-Currency,Low-Code-User-Sub'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v1/stripe/charge:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Low-Code-User-Sub"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Amount"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Currency"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "http://54.81.252.5:8080/api/v1/stripe/charge"
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.Low-Code-Currency: "method.request.header.Low-Code-Currency"
+          integration.request.header.Low-Code-User-Sub: "method.request.header.Low-Code-User-Sub"
+          integration.request.header.Low-Code-Amount: "method.request.header.Low-Code-Amount"
+        passthroughBehavior: "when_no_match"
+        type: "http"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Low-Code-User-Sub,Low-Code-Amount,Low-Code-Currency'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v1/stripe/session:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Low-Code-User-Sub"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Amount"
+        in: "header"
+        required: false
+        type: "string"
+      - name: "Low-Code-Currency"
+        in: "header"
+        required: false
+        type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "http://54.81.252.5:8080/api/v1/stripe/session"
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestParameters:
+          integration.request.header.Low-Code-Currency: "method.request.header.Low-Code-Currency"
+          integration.request.header.Low-Code-User-Sub: "method.request.header.Low-Code-User-Sub"
+          integration.request.header.Low-Code-Amount: "method.request.header.Low-Code-Amount"
+        passthroughBehavior: "when_no_match"
+        type: "http"
+    options:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/json"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+          headers:
+            Access-Control-Allow-Origin:
+              type: "string"
+            Access-Control-Allow-Methods:
+              type: "string"
+            Access-Control-Allow-Headers:
+              type: "string"
+      x-amazon-apigateway-integration:
+        responses:
+          default:
+            statusCode: "200"
+            responseParameters:
+              method.response.header.Access-Control-Allow-Methods: "'OPTIONS,POST'"
+              method.response.header.Access-Control-Allow-Headers: "'Content-Type,X-Amz-Date,Authorization,X-Api-Key,X-Amz-Security-Token,Low-Code-User-Sub,Low-Code-Amount,Low-Code-Currency'"
+              method.response.header.Access-Control-Allow-Origin: "'*'"
+        requestTemplates:
+          application/json: "{\"statusCode\": 200}"
+        passthroughBehavior: "when_no_match"
+        type: "mock"
+  /api/v1/webhooks/paypal:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "paypal-transmission-time"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "paypal-cert-url"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "paypal-auth-algo"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "paypal-transmission-id"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "paypal-transmission-sig"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "http://${stageVariables.p2_backend}/api/v1/webhooks/paypal"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.paypal-transmission-time: "method.request.header.paypal-transmission-time"
+          integration.request.header.paypal-transmission-sig: "method.request.header.paypal-transmission-sig"
+          integration.request.header.paypal-cert-url: "method.request.header.paypal-cert-url"
+          integration.request.header.paypal-transmission-id: "method.request.header.paypal-transmission-id"
+          integration.request.header.paypal-auth-algo: "method.request.header.paypal-auth-algo"
+        passthroughBehavior: "when_no_match"
+        type: "http"
+  /api/v1/webhooks/stripe:
+    post:
+      produces:
+      - "application/json"
+      parameters:
+      - name: "Stripe-Signature"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        "200":
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Empty"
+      x-amazon-apigateway-integration:
+        httpMethod: "POST"
+        uri: "http://${stageVariables.p2_backend}/api/v1/webhooks/stripe"
+        responses:
+          default:
+            statusCode: "200"
+        requestParameters:
+          integration.request.header.Stripe-Signature: "method.request.header.Stripe-Signature"
+        passthroughBehavior: "when_no_match"
+        type: "http"
+definitions:
+  Empty:
+    type: "object"
+    title: "Empty Schema"
