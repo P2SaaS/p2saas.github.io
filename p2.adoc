@@ -56,7 +56,7 @@ and general (not PSP-specific):
 * Form
 * Basic
 
-image::resources/component_palette-2.png[]
+image::resources/component_palette-2.png[General components]
 
 == Front-end & Back-end integration
 
@@ -130,6 +130,8 @@ After the transaction confirmed on PSP side, it sends a confirmation to web-hook
 
 == Payment Page (P2) API
 
+{p2-url}/blob/main/vue-project[Example target application]
+
 {p2-url}/blob/main/resources/api/P2%20API-dev-swagger-apigateway.yaml[P2 API]
 
 http://54.81.252.5:8080/swagger-ui/index.html[Swagger UI]
@@ -147,9 +149,9 @@ Common P2 contains base classes for specific PSP (Stripe, PayPal, etc.) and basi
 [source,maven]
 ----
 <dependency>
-<groupId>com.p2s2</groupId>
-<artifactId>p2-common</artifactId>
-<version>1.0.0-RELEASE</version>
+    <groupId>com.p2s2</groupId>
+    <artifactId>p2-common</artifactId>
+    <version>1.0.0-RELEASE</version>
 </dependency>
 ----
 
@@ -158,9 +160,9 @@ Auditing module being included in the target application allows to make auditing
 [source,maven]
 ----
 <dependency>
-<groupId>com.p2s2</groupId>
-<artifactId>auditing</artifactId>
-<version>1.0.0-RELEASE</version>
+    <groupId>com.p2s2</groupId>
+    <artifactId>auditing</artifactId>
+    <version>1.0.0-RELEASE</version>
 </dependency>
 ----
 
@@ -169,8 +171,8 @@ P2 back-end module provides functionality for all back-end Spring-boot code, tha
 [source,maven]
 ----
 <dependency>
-<groupId>com.p2s2</groupId>
-<artifactId>api</artifactId>
-<version>1.0.0-RELEASE</version>
+    <groupId>com.p2s2</groupId>
+    <artifactId>api</artifactId>
+    <version>1.0.0-RELEASE</version>
 </dependency>
 ----

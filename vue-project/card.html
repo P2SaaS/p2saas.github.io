@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <style>body{margin: 0; padding: 0; width: 100%;}</style>
+        <title>LowCodePayments</title>
+	</head>
+	<body v-scope="LoadScripts()">
+		<div ><div style="min-height: 200px" amount="0" class="stripe-wrapper">
+		<p>Use test card's number 4242 4242 4242 4242 with arbitrary other attributes.</p>
+		<form @vue:mounted="initStripeCardForm($el)" style="width: 300px" class="stripe-card-form">
+			<div class="stripe-card-element"></div>
+			<button type="submit" text="Pay" >Send</button>
+		</form>
+		</div></div>
+		<script src="/src/main.min.js" type="module"></script>
+		<script src="https://applepay.cdn-apple.com/jsapi/v1/apple-pay-sdk.js"></script>
+		<script src="https://js.stripe.com/v3/"></script>
+	</body>
+</html>
