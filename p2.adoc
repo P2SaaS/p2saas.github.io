@@ -1,7 +1,7 @@
 = Payment Page
 :toc:
 
-:p2-url: https://github.com/P2SaaS/p2-api-doc
+:p2-url: https://github.com/P2SaaS/p2saas.github.io
 
 Payment Page (or shortly P2 or p2) is a piece of functionality that allows to integrate with your web-application different payment methods that a client can use to pay money for a target service or product.
 
@@ -130,7 +130,7 @@ After the transaction confirmed on PSP side, it sends a confirmation to web-hook
 
 == Payment Page (P2) API
 
-{p2-url}/blob/main/vue-project[Example target application]
+{p2-url}/tree/main/vue-project[Example target application]
 
 {p2-url}/blob/main/resources/api/P2%20API-dev-swagger-apigateway.yaml[P2 API]
 
