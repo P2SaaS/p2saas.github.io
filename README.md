@@ -10,4 +10,4 @@ This streamlined process enables customers to quickly and easily add payment cap
 
 To design a payment pages suite his needs a customer should subscribe to use Builder capabilities of the application. After subscription paid and active the customer able to create and design different payment page projects and test them in the sandbox, i.e. set up payment pages settings to customer's PSP attributes make test payments and see results in respective PSP application.
 
-To be able to upload bundle with generated code of the designed Payment Page a customer need: pay one-time fixed price to buy a license for either binary libraries code or source code (binaries can be included or are built from sources). The pricing plan is available here: https://dev.lowcodepayments.com/pricing
+To be able to upload bundle with generated code of the designed Payment Page a customer need: pay one-time fixed price to buy a license for either binary libraries code or source code (binaries can be included or are built from sources). The pricing plan is available here: [Pricing](https://dev.lowcodepayments.com/pricing)
