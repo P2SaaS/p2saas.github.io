@@ -134,7 +134,7 @@ After the transaction confirmed on PSP side, it sends a confirmation to web-hook
 
 {p2-url}/blob/main/resources/api/P2%20API-dev-swagger-apigateway.yaml[P2 API]
 
-http://54.81.252.5:8080/swagger-ui/index.html[Swagger UI]
+http://18.159.69.27:8080/swagger-ui/index.html[Swagger UI]
 
 == P2 BE Modules
 
